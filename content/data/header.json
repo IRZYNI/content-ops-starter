@@ -75,7 +75,7 @@
         {
             "label": "Sign up",
             "altText": "Sign up",
-            "url": "/signup",
+            "url": "/sign-up",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
