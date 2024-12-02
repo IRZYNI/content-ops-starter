@@ -3,13 +3,30 @@ import classNames from 'classnames';
 import { iconMap } from '../../svgs';
 import Link from '../Link';
 
-export default function Action(props) {
+// Define the prop types
+interface ActionProps {
+    elementId: string;
+    className?: string;
+    label: string;
+    altText: string;
+    url: string;
+    showIcon?: boolean;
+    icon?: keyof typeof iconMap; // Assuming icon is a key from the iconMap
+    iconPosition?: 'left' | 'right';
+    style?: 'primary' | 'secondary';
+    ['data-sb-field-path']?: string;
+    __metadata?: { modelName: string }; // If this is always optional, you can make it optional
+}
+
+const Action: React.FC<ActionProps> = (props) => {
     const { elementId, className, label, altText, url, showIcon, icon, iconPosition = 'right', style = 'primary' } = props;
     const IconComponent = icon ? iconMap[icon] : null;
     const fieldPath = props['data-sb-field-path'];
+
     const annotations = fieldPath
         ? { 'data-sb-field-path': [fieldPath, `${fieldPath}.url#@href`, `${fieldPath}.altText#@aria-label`, `${fieldPath}.elementId#@id`].join(' ').trim() }
         : {};
+
     const type = props.__metadata?.modelName;
 
     return (
@@ -45,3 +62,5 @@ export default function Action(props) {
         </Link>
     );
 }
+
+export default Action;
