@@ -1,8 +1,8 @@
 import React from 'react';
 import { allContent } from '../utils/local-content';
 import { getComponent } from '../components/components-registry';
-import { resolveStaticProps } from '../utils/static-props-resolvers.ts';
-import { resolveStaticPaths } from '../utils/static-paths-resolvers.ts';
+import { resolveStaticProps } from '../utils/static-props-resolvers';
+import { resolveStaticPaths } from '../utils/static-paths-resolvers';
 
 function Page(props) {
     const { page, site } = props;
